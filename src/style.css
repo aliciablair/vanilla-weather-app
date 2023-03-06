@@ -3,7 +3,7 @@ body {
   }
   
   h1 {
-    color: #878787;
+    color: black;
     font-size: 24px;
     font-weight: 100;
     line-height: 28px;
@@ -11,7 +11,8 @@ body {
   }
   
 ul {
-    padding-left: 0%;
+    padding: 0;
+    margin: 0;
 }
 
   li {
@@ -20,6 +21,8 @@ ul {
     font-size: 16px;
     font-weight: 100;
     line-height: 19px;
+    margin: 0;
+    padding: 0;
   }
   
   li:first-letter {
@@ -39,6 +42,7 @@ ul {
     border: 1px solid black;
     border-radius: 5px;
   }
+
   
   .overview {
     margin-bottom: 20px;
