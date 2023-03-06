@@ -28,6 +28,10 @@ ul {
   li:first-letter {
     text-transform: capitalize;
   }
+
+  a {
+    text-decoration: none;
+  }
   
   .weather-app-wrapper {
     max-width: 600px;
@@ -91,3 +95,4 @@ ul {
   .weather-forecast-temperature-min {
     opacity: 0.5;
   }
+
