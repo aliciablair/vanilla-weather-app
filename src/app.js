@@ -1,7 +1,7 @@
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
-    
+
     if (hours < 10) {
         hours = `0${hours}`;
     }
@@ -38,7 +38,6 @@ function formatDate(timestamp) {
 
 function displayTemperature(response) {
 
-    console.log(response.data);
     let cityElement = document.querySelector("#city");
     let dateElement = document.querySelector("#date");
     let temperatureElement = document.querySelector("#temperature");
