@@ -25,17 +25,6 @@ function formatDate(timestamp) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 function displayTemperature(response) {
 
     let cityElement = document.querySelector("#city");
@@ -56,8 +45,9 @@ function displayTemperature(response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
+let city = "Boston";
 let apiKey = "tce447e9aac51b35b06befo3864f3df5";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Boston&key=${apiKey}&units=imperial`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
 
 console.log(apiUrl);
