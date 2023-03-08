@@ -49,10 +49,21 @@ function displayTemperature(response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
-let city = "Boston";
-let apiKey = "tce447e9aac51b35b06befo3864f3df5";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+function search(city) {
+    let apiKey = "tce447e9aac51b35b06befo3864f3df5";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayTemperature);
+    
+}
 
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+    
+}
 
-console.log(apiUrl);
-axios.get(apiUrl).then(displayTemperature);
+search("Boston");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
