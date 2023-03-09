@@ -37,10 +37,11 @@ function displayTemperature(response) {
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
 
+    fahrenheitTemperature = response.data.temperature.current;
 
     cityElement.innerHTML = response.data.city;
     dateElement.innerHTML = formatDate(response.data.time * 1000);
-    temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
     iconElement.setAttribute("src", response.data.condition.icon_url);
     iconElement.setAttribute("alt",  response.data.condition.description);
     descriptionElement.innerHTML = response.data.condition.description;
@@ -63,7 +64,35 @@ function handleSubmit(event) {
     
 }
 
-search("Boston");
+function displayCelsiusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+    let celsiusTemperature = (fahrenheitTemperature - 32) * 5/9;
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    temperatureElement = document.querySelector("#temperature");
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+
+let fahrenheitTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature)
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+
+search("Boston");
