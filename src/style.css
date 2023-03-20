@@ -73,24 +73,24 @@ a {
   cursor: default;
 }
 
-.weather-forcast {
+.weather-forecast {
   margin-top: 20px;
   text-align: center;
   
 }
 
-.weather-forcast-date {
+.weather-forecast-date {
   font-size: 16px;
   color: #000;
   opacity: 0.6;
 
 }
 
-.weather-forcast-temperature-min {
+.weather-forecast-temperature-min {
 opacity: 0.5;
 
 }
 
-.weather-forcast-temperature {
+.weather-forecast-temperature {
   font-size: 13px;
 }
