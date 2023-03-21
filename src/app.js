@@ -24,7 +24,8 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
   
     let days = ["Tues", "Wed", "Thurs", "Fri", "Sat"];
@@ -54,6 +55,15 @@ function displayForecast() {
     console.log(forecastHTML);
   }
 
+function getForcast(coordinates) {
+  
+  console.log(coordinates);
+  let apiKey = "tce447e9aac51b35b06befo3864f3df5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+
+}
+
 
 function displayTemperature(response) {
 
@@ -79,6 +89,8 @@ function displayTemperature(response) {
     feelsLikeElement.innerHTML = Math.round(response.data.temperature.feels_like);
     humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
     windElement.innerHTML = Math.round(response.data.wind.speed);
+
+    getForcast(response.data.coordinates);
 }
 
 function search(city) {
@@ -127,4 +139,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 
 search("Boston");
-displayForecast();
